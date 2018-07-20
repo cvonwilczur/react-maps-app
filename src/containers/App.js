@@ -35,7 +35,12 @@ class App extends Component {
   render() {
     const { antiqueArray } = this.state
     return (
-      <Map antiqueArray={antiqueArray}/>
+      <div id="map">
+        <h1>Welcome to Melrose</h1>
+        {/* <Filter /> */}
+        <Map antiqueArray={antiqueArray}/>
+        {/* <FilterResults /> */}
+      </div>
     );
   }
 }

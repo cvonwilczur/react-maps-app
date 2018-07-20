@@ -26,7 +26,7 @@ class Map extends Component {
                 <Mapmarker
                   lat={this.props.antiqueArray[i].coordinates.lat}
                   lng={this.props.antiqueArray[i].coordinates.lng}
-                  text={this.props.antiqueArray[i].name}
+                  text={i}
                 />
               );
             })
