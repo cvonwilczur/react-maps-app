@@ -41,7 +41,7 @@ class App extends Component {
         <h1>Welcome to Melrose</h1>
         <Filter />
         <Map antiqueArray={antiqueArray}/>
-        <List />
+        <List antiqueArray={antiqueArray}/>
       </div>
     );
   }
