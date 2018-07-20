@@ -1,14 +1,15 @@
 import React from 'react';
 
-const Filter = () => {
+const SearchBox = ({ searchChange, searchfield }) => {
   return (
     <div>
       <input
         type='search'
         placeholder='Filter'
+        onChange={searchChange}
       />
     </div>
   )
 }
 
-export default Filter;
+export default SearchBox;

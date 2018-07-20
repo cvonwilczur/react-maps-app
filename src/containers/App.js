@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
 import Map from './Map';
-import Filter from '../components/Filter';
+import SearchBox from '../components/SearchBox';
 import List from '../components/List';
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      antiqueArray: [
+      locationsArray: [
         {name: 'Retro Ranch',
          coordinates: {
            lat: '33.498727',
@@ -29,19 +29,26 @@ class App extends Component {
          coordinates: {
             lat: '33.498659',
             lng: '-112.083452'}}
-      ]
+      ],
+      searchfield: ''
     };
   }
 
+  onSearchChange = (event) => {
+    this.setState({ searchfield: event.target.value });
+  }
 
   render() {
-    const { antiqueArray } = this.state
+    const { locationsArray, searchfield } = this.state;
+    const filteredLocations = locationsArray.filter(location => {
+      return location.name.toLowerCase().includes(searchfield.toLowerCase());
+    })
     return (
-      <div id="map">
+      <div id="app">
         <h1>Welcome to Melrose</h1>
-        <Filter />
-        <Map antiqueArray={antiqueArray}/>
-        <List antiqueArray={antiqueArray}/>
+        <SearchBox searchChange={this.onSearchChange} />
+        <Map locationsArray={filteredLocations}/>
+        <List locationsArray={filteredLocations}/>
       </div>
     );
   }

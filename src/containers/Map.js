@@ -21,11 +21,11 @@ class Map extends Component {
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
         >
-          {this.props.antiqueArray.map((location, i) => {
+          {this.props.locationsArray.map((location, i) => {
               return (
                 <Mapmarker
-                  lat={this.props.antiqueArray[i].coordinates.lat}
-                  lng={this.props.antiqueArray[i].coordinates.lng}
+                  lat={this.props.locationsArray[i].coordinates.lat}
+                  lng={this.props.locationsArray[i].coordinates.lng}
                   text={i}
                 />
               );
