@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import Map from './Map'
+import Map from './Map';
+import Filter from '../components/Filter';
+import List from '../components/List';
 
 class App extends Component {
   constructor() {
@@ -37,9 +39,9 @@ class App extends Component {
     return (
       <div id="map">
         <h1>Welcome to Melrose</h1>
-        {/* <Filter /> */}
+        <Filter />
         <Map antiqueArray={antiqueArray}/>
-        {/* <FilterResults /> */}
+        <List />
       </div>
     );
   }
