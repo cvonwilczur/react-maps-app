@@ -8,30 +8,17 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      locationsArray: [
-        {name: 'Retro Ranch',
-         coordinates: {
-           lat: '33.498727',
-           lng: '-112.082819'}},
-        {name: 'Modern Manor',
-         coordinates: {
-            lat: '33.503970',
-            lng: '-112.083709'}},
-        {name: 'Sweet Salvage',
-         coordinates: {
-           lat: '33.505392',
-           lng: '-112.082634'}},
-        {name: 'Twigs and Twine',
-         coordinates: {
-            lat: '33.501533',
-            lng: '-112.082279'}},
-        {name: 'Home Again Furnishing',
-         coordinates: {
-            lat: '33.498659',
-            lng: '-112.083452'}}
-      ],
+      locationsArray: [],
       searchfield: ''
     };
+  }
+
+  componentDidMount() {
+    fetch("https://api.foursquare.com/v2/venues/search?ll=33.502168,-112.082415&query=antique&limit=10&client_id=0CT0RBMUHSM5OFZOKSZP1C1O5QACNVPCO3WIYY4ACYO04XK3&client_secret=K2QIFWY3C4PIOLXB0EP2AZ4MHQZH5DPMNBBYUB1KUWZVOYMZ&v=20180721", {
+      method: "GET"
+    })
+    .then(response => response.json())
+    .then(locations => this.setState({ locationsArray: locations.response.venues}))
   }
 
   onSearchChange = (event) => {

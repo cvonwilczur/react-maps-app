@@ -24,8 +24,8 @@ class Map extends Component {
           {this.props.locationsArray.map((location, i) => {
               return (
                 <Mapmarker
-                  lat={this.props.locationsArray[i].coordinates.lat}
-                  lng={this.props.locationsArray[i].coordinates.lng}
+                  lat={this.props.locationsArray[i].location.lat}
+                  lng={this.props.locationsArray[i].location.lng}
                   text={i}
                 />
               );
