@@ -4,9 +4,11 @@ import ListItem from './ListItem';
 const List = (props) => {
   return (
     <div>
-      <ul locationsarray={props.locationsarray}>
+      <ul
+        aria-label="Restaurant List"
+        locationsarray={props.locationsarray}>
         {props.locationsarray.map((location, i) => {
-            return (
+            return (!props.unfilteredarray.length ? <h1>{props.errorMessage}</h1>:
               <ListItem
                 mapMarkerActive={props.mapMarkerActive}
                 currentTargetkey={props.currentTargetkey}

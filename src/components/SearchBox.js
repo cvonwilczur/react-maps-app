@@ -4,6 +4,7 @@ const SearchBox = ({ searchChange }) => {
   return (
     <div>
       <input
+        tabIndex="1"
         type='search'
         placeholder='Filter'
         onChange={searchChange}

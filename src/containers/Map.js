@@ -15,11 +15,14 @@ class Map extends Component {
   };
 
   render(props) {
-    const { errorMessage, locationsarray } = this.props
-    return (!locationsarray.length ? <h1>{errorMessage}</h1>:
+    const { errorMessage, unfilteredarray } = this.props
+    return (!unfilteredarray.length ? <h1>{errorMessage}</h1>:
       // Important! Always set the container height explicitly
       <div style={{ height: '80vh', width: '100%' }}>
         <GoogleMapReact
+          aria-hidden="true"
+          aria-label="Google Maps"
+          tabIndex="-1"
           bootstrapURLKeys={{ key: 'AIzaSyCnRpzTYBKR0-X_sx0PoCdP5pfWaMICF1I' }}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}

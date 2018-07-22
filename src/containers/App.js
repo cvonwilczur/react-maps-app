@@ -62,8 +62,11 @@ class App extends Component {
     })
     return (
       <div id="app">
+        <header>
         <h1>Welcome to Melrose</h1>
-        <SearchBox searchChange={this.onSearchChange} />
+        </header>
+        <main>
+        <SearchBox aria-label="Filter Restaurants" searchChange={this.onSearchChange} />
         <Map
           errorMessage={errorMessage}
           mapMarkerActive={mapMarkerActive}
@@ -73,13 +76,19 @@ class App extends Component {
           currentTargetaddress={currentTargetaddress}
           currentTargetkey={currentTargetkey}
           onClick={this.onClick}
-          locationsarray={filteredLocations}/>
+          locationsarray={filteredLocations}
+          unfilteredarray={locationsArray}
+          />
         <List
+          errorMessage={errorMessage}
           mapMarkerActive={mapMarkerActive}
           currentTargetkey={currentTargetkey}
           onClick={this.onClick}
-          locationsarray={filteredLocations}/>
+          locationsarray={filteredLocations}
+          unfilteredarray={locationsArray}/>
+        </main>
       </div>
+
     );
   }
 }
