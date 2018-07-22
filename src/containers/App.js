@@ -33,15 +33,24 @@ class App extends Component {
   }
 
   onClick = (lat, lng, name, address, text) => {
-    this.setState({ currentTargetlat: lat})
-    this.setState({ currentTargetlng: lng})
-    this.setState({ currentTargetname: name })
-    this.setState({ currentTargetaddress: address })
-    this.setState({ currentTargetkey: text })
-    this.state.mapMarkerActive === false
-    ? this.setState({ mapMarkerActive: true })
-    : this.setState({ mapMarkerActive: false })
-
+    if (text !== this.state.currentTargetkey && this.state.mapMarkerActive === true) {
+      this.setState({ currentTargetlat: lat})
+      this.setState({ currentTargetlng: lng})
+      this.setState({ currentTargetname: name })
+      this.setState({ currentTargetaddress: address })
+      this.setState({ currentTargetkey: text })
+    } else if (text !== this.state.currentTargetkey && this.state.mapMarkerActive === false){
+      this.setState({ currentTargetlat: lat})
+      this.setState({ currentTargetlng: lng})
+      this.setState({ currentTargetname: name })
+      this.setState({ currentTargetaddress: address })
+      this.setState({ currentTargetkey: text })
+      this.setState({ mapMarkerActive: true })
+    } else if (text === this.state.currentTargetkey && this.state.mapMarkerActive === false){
+      this.setState({ mapMarkerActive: true })
+    } else {
+      this.setState({ mapMarkerActive: false })
+      }
   }
 
   render() {
