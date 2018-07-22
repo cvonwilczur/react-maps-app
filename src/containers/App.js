@@ -9,7 +9,10 @@ class App extends Component {
     super()
     this.state = {
       locationsArray: [],
-      searchfield: ''
+      searchfield: '',
+      mapMarkerActive: false,
+      currentTargetlat: '',
+      currentTargetlng: ''
     };
   }
 
@@ -25,8 +28,17 @@ class App extends Component {
     this.setState({ searchfield: event.target.value });
   }
 
+  onClick = (lat, lng) => {
+    this.setState({ currentTargetlat: lat})
+    this.setState({ currentTargetlng: lng})
+    this.state.mapMarkerActive === false
+    ? this.setState({ mapMarkerActive: true })
+    : this.setState({ mapMarkerActive: false })
+
+  }
+
   render() {
-    const { locationsArray, searchfield } = this.state;
+    const { locationsArray, searchfield, mapMarkerActive, currentTargetlat, currentTargetlng } = this.state;
     const filteredLocations = locationsArray.filter(location => {
       return location.name.toLowerCase().includes(searchfield.toLowerCase());
     })
@@ -34,7 +46,12 @@ class App extends Component {
       <div id="app">
         <h1>Welcome to Melrose</h1>
         <SearchBox searchChange={this.onSearchChange} />
-        <Map locationsarray={filteredLocations}/>
+        <Map
+          mapMarkerActive={mapMarkerActive}
+          currentTargetlat={currentTargetlat}
+          currentTargetlng={currentTargetlng}
+          onClick={this.onClick}
+          locationsarray={filteredLocations}/>
         <List locationsarray={filteredLocations}/>
       </div>
     );

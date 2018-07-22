@@ -1,10 +1,29 @@
+/* pure css map markers borrowed from Katia Trifonova */
+
 .mapmarker {
-  border: 2px solid #f44336;
-  background-color: white;
-  text-align: center;
-  color: '#3f51b5';
-  font-size: 16px;
-  font-weight: bold;
-  padding: 4px;
-  border-radius: 16px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  border-radius: 50% 50% 50% 0;
+  border: 4px solid #78f;
+  width: 20px;
+  height: 20px;
+  transform: rotate(-45deg);
+}
+
+.mapmarker:hover{
+  border: 4px solid #fff;
+}
+
+.mapmarker::after {
+  position: absolute;
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  margin-left: -5px;
+  margin-top: -5px;
+  background-color: #78f;
 }
