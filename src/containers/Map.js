@@ -38,6 +38,7 @@ class Map extends Component {
               return (
                 <Mapmarker
                   mapMarkerActive={this.props.mapMarkerActive}
+                  currentTargetkey={this.props.currentTargetkey}
                   onClick={this.props.onClick}
                   lat={this.props.locationsarray[i].location.lat}
                   lng={this.props.locationsarray[i].location.lng}

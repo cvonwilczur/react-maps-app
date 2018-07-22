@@ -27,3 +27,7 @@
   margin-top: -5px;
   background-color: #78f;
 }
+
+.active {
+  border: 4px solid #fff;
+}
