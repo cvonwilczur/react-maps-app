@@ -4,12 +4,13 @@ import ListItem from './ListItem';
 const List = (props) => {
   return (
     <div>
-      <ul locationsArray={props.locationsArray}>
-        {props.locationsArray.map((location, i) => {
+      <ul locationsarray={props.locationsarray}>
+        {props.locationsarray.map((location, i) => {
             return (
               <ListItem
-                name={props.locationsArray[i].name}
+                name={props.locationsarray[i].name}
                 text={i}
+                key={i}
               />
             );
           })
