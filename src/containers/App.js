@@ -15,7 +15,8 @@ class App extends Component {
       currentTargetlng: '',
       curentTargetname: '',
       currentTargetaddress: '',
-      currentTargetkey: ''
+      currentTargetkey: '',
+      errorMessage: 'No Results!'
     };
   }
 
@@ -25,6 +26,7 @@ class App extends Component {
     })
     .then(response => response.json())
     .then(locations => this.setState({ locationsArray: locations.response.venues}))
+    .catch(error => this.setState({errorMessage: 'Uh-Oh: '+error}) );
   }
 
   onSearchChange = (event) => {
@@ -54,7 +56,7 @@ class App extends Component {
   }
 
   render() {
-    const { locationsArray, searchfield, mapMarkerActive, currentTargetlat, currentTargetlng, currentTargetname, currentTargetaddress, currentTargetkey } = this.state;
+    const { errorMessage, locationsArray, searchfield, mapMarkerActive, currentTargetlat, currentTargetlng, currentTargetname, currentTargetaddress, currentTargetkey } = this.state;
     const filteredLocations = locationsArray.filter(location => {
       return location.name.toLowerCase().includes(searchfield.toLowerCase());
     })
@@ -63,6 +65,7 @@ class App extends Component {
         <h1>Welcome to Melrose</h1>
         <SearchBox searchChange={this.onSearchChange} />
         <Map
+          errorMessage={errorMessage}
           mapMarkerActive={mapMarkerActive}
           currentTargetlat={currentTargetlat}
           currentTargetlng={currentTargetlng}

@@ -15,7 +15,8 @@ class Map extends Component {
   };
 
   render(props) {
-    return (
+    const { errorMessage, locationsarray } = this.props
+    return (!locationsarray.length ? <h1>{errorMessage}</h1>:
       // Important! Always set the container height explicitly
       <div style={{ height: '80vh', width: '100%' }}>
         <GoogleMapReact
