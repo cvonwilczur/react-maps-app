@@ -8,7 +8,13 @@ const List = (props) => {
         {props.locationsarray.map((location, i) => {
             return (
               <ListItem
+                mapMarkerActive={props.mapMarkerActive}
+                currentTargetkey={props.currentTargetkey}
                 name={props.locationsarray[i].name}
+                lat={props.locationsarray[i].location.lat}
+                lng={props.locationsarray[i].location.lng}
+                address={props.locationsarray[i].location.address}
+                onClick={props.onClick}
                 text={i}
                 key={i}
               />

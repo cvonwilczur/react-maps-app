@@ -12,7 +12,10 @@ class App extends Component {
       searchfield: '',
       mapMarkerActive: false,
       currentTargetlat: '',
-      currentTargetlng: ''
+      currentTargetlng: '',
+      curentTargetname: '',
+      currentTargetaddress: '',
+      currentTargetkey: ''
     };
   }
 
@@ -26,11 +29,15 @@ class App extends Component {
 
   onSearchChange = (event) => {
     this.setState({ searchfield: event.target.value });
+    this.setState({ mapMarkerActive: false })
   }
 
-  onClick = (lat, lng) => {
+  onClick = (lat, lng, name, address, text) => {
     this.setState({ currentTargetlat: lat})
     this.setState({ currentTargetlng: lng})
+    this.setState({ currentTargetname: name })
+    this.setState({ currentTargetaddress: address })
+    this.setState({ currentTargetkey: text })
     this.state.mapMarkerActive === false
     ? this.setState({ mapMarkerActive: true })
     : this.setState({ mapMarkerActive: false })
@@ -38,7 +45,7 @@ class App extends Component {
   }
 
   render() {
-    const { locationsArray, searchfield, mapMarkerActive, currentTargetlat, currentTargetlng } = this.state;
+    const { locationsArray, searchfield, mapMarkerActive, currentTargetlat, currentTargetlng, currentTargetname, currentTargetaddress, currentTargetkey } = this.state;
     const filteredLocations = locationsArray.filter(location => {
       return location.name.toLowerCase().includes(searchfield.toLowerCase());
     })
@@ -50,9 +57,16 @@ class App extends Component {
           mapMarkerActive={mapMarkerActive}
           currentTargetlat={currentTargetlat}
           currentTargetlng={currentTargetlng}
+          currentTargetname={currentTargetname}
+          currentTargetaddress={currentTargetaddress}
+          currentTargetkey={currentTargetkey}
           onClick={this.onClick}
           locationsarray={filteredLocations}/>
-        <List locationsarray={filteredLocations}/>
+        <List
+          mapMarkerActive={mapMarkerActive}
+          currentTargetkey={currentTargetkey}
+          onClick={this.onClick}
+          locationsarray={filteredLocations}/>
       </div>
     );
   }

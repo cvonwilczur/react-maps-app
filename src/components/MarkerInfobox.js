@@ -1,8 +1,9 @@
 import React from 'react';
+import './Markerinfobox.css';
 
 const MarkerInfobox = (props) => {
   return (
-    <div>Info</div>
+    <div className="markerinfobox">{props.name} {props.address}</div>
 )}
 
 export default MarkerInfobox;

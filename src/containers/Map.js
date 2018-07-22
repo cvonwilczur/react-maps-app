@@ -28,6 +28,9 @@ class Map extends Component {
             ? <MarkerInfobox
               lat={this.props.currentTargetlat}
               lng={this.props.currentTargetlng}
+              name={this.props.currentTargetname}
+              address={this.props.currentTargetaddress}
+              key={this.props.currentTargetkey}
               />
             : null
           }
@@ -39,7 +42,7 @@ class Map extends Component {
                   lat={this.props.locationsarray[i].location.lat}
                   lng={this.props.locationsarray[i].location.lng}
                   name={this.props.locationsarray[i].name}
-                  crossstreet={this.props.locationsarray[i].location.crossStreet}
+                  address={this.props.locationsarray[i].location.address}
                   text={i}
                   key={i}
                 />
