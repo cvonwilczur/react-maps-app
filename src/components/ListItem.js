@@ -6,11 +6,11 @@ const ListItem = (props) => {
       tabIndex={props.text+10}
       className={props.text === props.currentTargetkey && props.mapMarkerActive === true ? 'highlight' : null}
       onClick={e => props.onClick(props.lat, props.lng, props.name, props.address, props.text)}
-      onFocus={e => props.onClick(props.lat, props.lng, props.name, props.address, props.text)}
-      // aria-label="Restaurant"
+      onKeyUp={e => (e.key === "Tab") ? props.onClick(props.lat, props.lng, props.name, props.address, props.text) : null }
       >
       {props.name}
-      {props.text === props.currentTargetkey && props.mapMarkerActive === true ? props.address : null}
+      <br></br>
+      {props.text === props.currentTargetkey && props.mapMarkerActive === true ? 'Address: '+props.address : null}
     </li>
 )}
 

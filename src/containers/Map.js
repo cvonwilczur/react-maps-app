@@ -17,8 +17,8 @@ class Map extends Component {
   render(props) {
     const { errorMessage, unfilteredarray } = this.props
     return (!unfilteredarray.length ? <h1>{errorMessage}</h1>:
-      // Important! Always set the container height explicitly
-      <div className="map" style={{ height: '80vh'}}>
+      // We're using GoogleMapReact library here to pump in the Google Maps API and render React components over it
+      <div className="map">
         <GoogleMapReact
           aria-hidden="true"
           aria-label="Google Maps"
