@@ -1,28 +1,140 @@
-.App {
+/***** Global Values *****/
+
+h1 {
+  margin: 0 auto;
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+
+li {
+  text-align: center;
+  margin: 0 auto;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+ul {
+  margin: 0 auto;
+  list-style: none;
 }
 
-.App-title {
-  font-size: 1.5em;
+.highlight {
+  background-color: yellow;
 }
 
-.App-intro {
-  font-size: large;
+/***** Map Markers *****/
+.mapmarker {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  border-radius: 50% 50% 50% 0;
+  border: 4px solid #78f;
+  width: 20px;
+  height: 20px;
+  transform: rotate(-45deg);
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.mapmarker:hover{
+  border: 4px solid #fff;
+}
+
+.mapmarker::after {
+  position: absolute;
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  margin-left: -5px;
+  margin-top: -5px;
+  background-color: #78f;
+}
+
+.active {
+  border: 4px solid #fff;
+}
+
+.MarkerInfobox {
+  position: absolute;
+  /* top: 40%;
+  left: 50%; */
+  bottom: 60%;
+  color: #fff;
+  background-color: #78f;
+  border: 4px solid #78f;
+  width: 120px;
+  height: 60px;
+  z-index: 1000;
+  font-size: 16px;
+}
+
+/* Flexbox */
+
+header {
+  display: flex;
+  width: 100%;
+}
+
+main {
+  display: flex;
+  flex-flow: column wrap;
+  width: 100%;
+}
+
+.SearchBox {
+  width: 100%;
+}
+
+/***** Media Queries *****/
+
+@media screen and (min-width: 199px) {
+  ul {
+    display: flex;
+    flex-flow: row wrap;
+  }
+  li {
+    width: 100%;
+  }
+  .map {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 480px) and (max-width: 599px){
+  ul {
+    display: flex;
+    flex-flow: row wrap;
+  }
+  li {
+    width: 45%;
+  }
+  .map {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width:799px){
+  ul {
+    display: flex;
+    flex-flow: row wrap;
+  }
+  li {
+    width: 33%;
+  }
+  .map {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 800px){
+  main {
+    display: flex;
+    flex-flow: row wrap;
+  }
+  .map {
+    width: 75%;
+    order: 3;
+  }
+  .listDiv {
+    width: 25%;
+    order: 2;
+  }
 }

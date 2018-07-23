@@ -1,5 +1,4 @@
 import React from 'react';
-import './Listitem.css';
 
 const ListItem = (props) => {
   return(
@@ -10,7 +9,6 @@ const ListItem = (props) => {
       onFocus={e => props.onClick(props.lat, props.lng, props.name, props.address, props.text)}
       // aria-label="Restaurant"
       >
-      {props.text}
       {props.name}
       {props.text === props.currentTargetkey && props.mapMarkerActive === true ? props.address : null}
     </li>

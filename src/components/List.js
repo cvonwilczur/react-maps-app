@@ -3,7 +3,7 @@ import ListItem from './ListItem';
 
 const List = (props) => {
   return (
-    <div>
+    <div className="listDiv">
       <ul
         aria-label="Restaurant List"
         locationsarray={props.locationsarray}>

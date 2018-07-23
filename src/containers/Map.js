@@ -18,7 +18,7 @@ class Map extends Component {
     const { errorMessage, unfilteredarray } = this.props
     return (!unfilteredarray.length ? <h1>{errorMessage}</h1>:
       // Important! Always set the container height explicitly
-      <div style={{ height: '80vh', width: '100%' }}>
+      <div className="map" style={{ height: '80vh'}}>
         <GoogleMapReact
           aria-hidden="true"
           aria-label="Google Maps"
