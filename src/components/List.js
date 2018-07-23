@@ -7,7 +7,8 @@ const List = (props) => {
       <ul
         aria-label="Restaurant List"
         locationsarray={props.locationsarray}>
-        {props.locationsarray.map((location, i) => {
+        {!props.unfilteredarray.length ? <li>Something went wrong when loading the page; please refresh or check your internet settings!</li>
+          : props.locationsarray.map((location, i) => {
             return (!props.unfilteredarray.length ? <h1>{props.errorMessage}</h1>:
               <ListItem
                 mapMarkerActive={props.mapMarkerActive}

@@ -29,6 +29,7 @@ class App extends Component {
     .catch(error => this.setState({errorMessage: 'Uh-Oh: '+error}) );
   }
 
+  // locations.response.venues
 // updates state with the value of whatever is in the input box, also sets mapmarker to false to clear any current active mapmarkers
   onSearchChange = (event) => {
     this.setState({ searchfield: event.target.value });
@@ -60,9 +61,9 @@ class App extends Component {
   render() {
     // filtered array produced by whatever is in state from the filter input
     const { errorMessage, locationsArray, searchfield, mapMarkerActive, currentTargetlat, currentTargetlng, currentTargetname, currentTargetaddress, currentTargetkey } = this.state;
-    const filteredLocations = locationsArray.filter(location => {
+    const filteredLocations = !locationsArray.length ? null : locationsArray.filter(location => {
       return location.name.toLowerCase().includes(searchfield.toLowerCase());
-    })
+    });
     return (
       <div id="app">
         <header>

@@ -5,6 +5,7 @@ import MarkerInfobox from '../components/MarkerInfobox';
 
 
 
+
 class Map extends Component {
   static defaultProps = {
     center: {
@@ -19,11 +20,11 @@ class Map extends Component {
     return (!unfilteredarray.length ? <h1>{errorMessage}</h1>:
       // We're using GoogleMapReact library here to pump in the Google Maps API and render React components over it
       <div className="map">
-        <GoogleMapReact
+        {<GoogleMapReact
           aria-hidden="true"
           aria-label="Google Maps"
           tabIndex="-1"
-          bootstrapURLKeys={{ key: 'AIzaSyCnRpzTYBKR0-X_sx0PoCdP5pfWaMICF1I' }}
+          bootstrapURLKeys={{ key: 'AIzaSyCnRpzTYBKR0-X_sx0PoCdP5pfWaMICF1I'}}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
         >
@@ -38,7 +39,7 @@ class Map extends Component {
               />
             : null
           }
-          {this.props.locationsarray.map((location, i) => {
+          {!this.props.unfilteredarray.length ? null: this.props.locationsarray.map((location, i) => {
               return (
                 <Mapmarker
                   mapMarkerActive={this.props.mapMarkerActive}
@@ -55,6 +56,8 @@ class Map extends Component {
             })
           }
         </GoogleMapReact>
+      }
+
       </div>
     );
   }
