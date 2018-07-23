@@ -4,7 +4,8 @@ const SearchBox = ({ searchChange }) => {
   return (
     <div>
       <input
-        tabIndex="1"
+        aria-label="Filter Restaurants"
+        tabIndex="2"
         type='search'
         placeholder='Filter'
         onChange={searchChange}

@@ -63,10 +63,10 @@ class App extends Component {
     return (
       <div id="app">
         <header>
-        <h1>Welcome to Melrose</h1>
+        <h1 tabIndex="1">Welcome to Melrose</h1>
         </header>
         <main>
-        <SearchBox aria-label="Filter Restaurants" searchChange={this.onSearchChange} />
+        <SearchBox  searchChange={this.onSearchChange} />
         <Map
           errorMessage={errorMessage}
           mapMarkerActive={mapMarkerActive}
